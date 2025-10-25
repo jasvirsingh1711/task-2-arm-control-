@@ -30,6 +30,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'joint_teleop = arm_control.joint_teleop:main',
         ],
     },
 )
