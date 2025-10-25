@@ -9,6 +9,9 @@ def generate_launch_description():
 
     urdf_file= os.path.join(pkg_path, 'urdf', 'Arm_Urdf.urdf')
 
+    rviz_config_file = os.path.join(pkg_path, 'rviz', 'arm.rviz')
+
+
     return LaunchDescription([
 
         Node(
@@ -26,6 +29,14 @@ def generate_launch_description():
             name='joint_state_publisher_gui',
             output='screen'
         ),
+
+        Node(
+            package='rviz2',
+            executable='rviz2',
+            name='rviz2',
+            output='screen',
+            arguments=['-d', rviz_config_file]
+        )
 
 
     ])
